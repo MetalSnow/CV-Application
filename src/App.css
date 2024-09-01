@@ -1,0 +1,127 @@
+#root {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-container {
+  display: none;
+  border: 2px solid wheat;
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  background-color: #132929;
+
+  & h1 {
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    & .cvIcon {
+      width: 55px;
+      animation: scale-rotate 2s ease-in-out infinite alternate;
+    }
+  }
+
+  & form {
+    display: grid;
+    gap: 15px;
+    width: 100%;
+
+    & fieldset {
+      display: flex;
+      padding: 25px;
+      justify-content: space-around;
+      gap: 15px;
+
+      & legend {
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0 5px;
+      }
+
+      & label {
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        gap: 5px;
+
+        & input {
+          font-family: inherit;
+          font-size: 14px;
+          padding: 6px;
+          background-color: rgb(254, 245, 228);
+          color: black;
+          font-weight: 600;
+          border-radius: 6px;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.cv-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  & header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0 40px;
+    background: #132929;
+    color: white;
+    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
+
+    & h1 {
+      font-size: 25px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      & img {
+        width: 45px;
+      }
+    }
+
+    & .edit-btns {
+      display: flex;
+      gap: 20px;
+
+      & button {
+        background-color: bisque;
+        width: 135px;
+        border: none;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  & main {
+    background-color: white;
+    flex: 1;
+  }
+}
+
+@keyframes scale-rotate {
+  from {
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    transform: scale(1) rotate(5deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .cvIcon {
+    animation: scale-rotate 2s ease-in-out infinite alternate;
+  }
+}
