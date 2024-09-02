@@ -4,10 +4,13 @@
   margin: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home-container {
-  display: none;
+  opacity: 1;
+  transition: opacity 0.4s ease-in, display 0.4s allow-discrete;
   border: 2px solid wheat;
   border-radius: 10px;
   padding: 20px;
@@ -34,6 +37,7 @@
 
     & fieldset {
       display: flex;
+      flex-wrap: wrap;
       padding: 25px;
       justify-content: space-around;
       gap: 15px;
@@ -65,9 +69,15 @@
   }
 }
 
+.home-container.hide {
+  display: none;
+  opacity: 0;
+}
+
 .cv-container {
+  display: none;
+  opacity: 0;
   width: 100%;
-  display: flex;
   flex-direction: column;
   height: 100%;
 
@@ -109,6 +119,11 @@
     background-color: white;
     flex: 1;
   }
+}
+
+.cv-container.show {
+  opacity: 1;
+  display: flex;
 }
 
 @keyframes scale-rotate {
