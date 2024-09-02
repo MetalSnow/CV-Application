@@ -1,9 +1,9 @@
-export default function Input({ label, type, placeholder, handleChange }) {
+export default function Input({ label, id, type, placeholder, handleChange }) {
   return (
     <label>
       {label}
       <input
-        className="input"
+        id={id}
         type={type}
         placeholder={placeholder}
         onChange={handleChange}

@@ -1,12 +1,34 @@
 import './App.css';
 import Home from './components/Home';
 import Resume from './components/Resume';
+import { useState } from 'react';
 
 function App() {
+  const [userInfo, setUserInfo] = useState('');
+
+  const [isHomeVisible, setHomeVisibility] = useState(true);
+  const [isResumeVisible, setResumeVisibility] = useState(false);
+
+  const handleChange = (e) => {
+    const key = e.target.id;
+    const value = e.target.value;
+    setUserInfo({ ...userInfo, [key]: value });
+  };
+
+  console.log(userInfo);
+
+  const submitForm = () => {
+    setTimeout(() => setResumeVisibility(true), 400);
+    setHomeVisibility(false);
+  };
   return (
     <>
-      <Home />
-      <Resume />
+      <Home
+        submitForm={submitForm}
+        handleChange={handleChange}
+        isVisible={isHomeVisible}
+      />
+      <Resume userInfo={userInfo} isVisible={isResumeVisible} />
     </>
   );
 }
