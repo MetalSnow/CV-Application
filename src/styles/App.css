@@ -141,7 +141,7 @@
         width: 200px;
         position: relative;
         overflow: hidden;
-        background-image: url(./assets/profile-pic.jpg);
+        background-image: url(../assets/profile-pic.jpg);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
