@@ -1,10 +1,11 @@
-import './App.css';
+import './styles/App.css';
 import Home from './components/Home';
 import Resume from './components/Resume';
+import data from './components/intialData';
 import { useState } from 'react';
 
 function App() {
-  const [userInfo, setUserInfo] = useState('');
+  const [userInfo, setUserInfo] = useState(data);
 
   const [isHomeVisible, setHomeVisibility] = useState(true);
   const [isResumeVisible, setResumeVisibility] = useState(false);

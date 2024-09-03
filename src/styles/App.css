@@ -40,6 +40,7 @@
       flex-wrap: wrap;
       padding: 25px;
       justify-content: space-around;
+      align-items: center;
       gap: 15px;
 
       & legend {
@@ -48,13 +49,26 @@
         padding: 0 5px;
       }
 
+      & > div {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
       & label {
         display: flex;
         flex-direction: column;
         align-items: self-start;
         gap: 5px;
 
-        & input {
+        & textarea {
+          resize: none;
+          height: 100px;
+          width: 200px;
+        }
+
+        & input,
+        textarea {
           font-family: inherit;
           font-size: 14px;
           padding: 6px;
@@ -118,6 +132,53 @@
   & main {
     background-color: white;
     flex: 1;
+
+    & .personalInfo {
+      padding: 20px;
+
+      & .profile-picture {
+        height: 220px;
+        width: 200px;
+        position: relative;
+        overflow: hidden;
+        background-image: url(./assets/profile-pic.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 8px 6px -7px black;
+
+        & .upload-icon {
+          position: absolute;
+          top: 45%;
+          left: 50%;
+          transform: translate(-35%, -35%);
+          opacity: 0;
+          transition: opacity 0.3s ease, background-color 0.3s ease, scale 0.3s;
+          background-color: #ffffffa7;
+          border-radius: 20%;
+          padding: 8px 8px 0 8px;
+        }
+
+        & .file-uploader {
+          opacity: 0;
+          height: 100%;
+          width: 100%;
+          cursor: pointer;
+          position: absolute;
+          top: 0%;
+          left: 0%;
+        }
+
+        &:hover {
+          background-image: none;
+          background-color: #d6d6d6;
+          .upload-icon {
+            opacity: 1;
+            scale: 1.5;
+          }
+        }
+      }
+    }
   }
 }
 
