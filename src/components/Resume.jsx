@@ -44,75 +44,84 @@ export default function Resume({ userInfo, isVisible }) {
         </div>
       </header>
       <main>
-        <div>
-          <h1>
-            {userInfo.firstName} {userInfo.lastName}
-          </h1>
-        </div>
-        <div>
-          <h2>{userInfo.positionTitle}</h2>
-          <div className="profile-section">
-            <h2>
-              <Icon
-                path={mdiAccountOutline}
-                title="User Profile"
-                size={1.2}
-                color="black"
-              />
-              Profile
-            </h2>
-            <p>{userInfo.profile}</p>
+        <div className="resume">
+          <div className="cv-header">
+            <h1>
+              {userInfo.firstName} {userInfo.lastName}
+            </h1>
           </div>
-          <div className="work-section">
-            <h2>
-              <Icon path={mdiBriefcaseVariantOutline} size={1.2} /> Work
-              Experience
-            </h2>
-            <div>
-              <div className="work-period">
-                <p>{userInfo.dateFrom}</p>
-                <p>{userInfo.dateUntil}</p>
-              </div>
-              <div className="work-info">
-                <h3>{userInfo.companyName}</h3>
-                <h4>{userInfo.positionTitle}</h4>
-                <p>&#8226;{userInfo.mainResponsibilities}</p>
+          <div className="cv-main">
+            <h2>{userInfo.positionTitle}</h2>
+            <div className="profile-section">
+              <h2>
+                <Icon
+                  path={mdiAccountOutline}
+                  title="User Profile"
+                  size={1.2}
+                  color="black"
+                />
+                Profile
+              </h2>
+              <p>{userInfo.profile}</p>
+            </div>
+            <div className="work-section">
+              <h2>
+                <Icon path={mdiBriefcaseVariantOutline} size={1.2} /> Work
+                Experience
+              </h2>
+              <div>
+                <div className="work-period">
+                  <p>{userInfo.dateFrom.slice(0, 4)}</p>
+                  &ndash;
+                  <p>{userInfo.dateUntil.slice(0, 4)}</p>
+                </div>
+                <div className="work-info">
+                  <h3>{userInfo.companyName}</h3>
+                  <h4>{userInfo.positionTitle}</h4>
+                  <p>&#8226; {userInfo.mainResponsibilities}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="personalInfo">
-          <div
-            className="profile-picture"
-            style={{
-              backgroundImage: profilePicture && `url(${profilePicture})`,
-            }}
-          >
-            <h1 className="upload-icon">
-              <Icon path={mdiFileImagePlusOutline} size={2} color={'#207695'} />
-            </h1>
+          <div className="personalInfo">
+            <div
+              className="profile-picture"
+              style={{
+                backgroundImage: profilePicture && `url(${profilePicture})`,
+              }}
+            >
+              <h1 className="upload-icon">
+                <Icon
+                  path={mdiFileImagePlusOutline}
+                  size={2}
+                  color={'#207695'}
+                />
+              </h1>
 
-            <input
-              className="file-uploader"
-              type="file"
-              accept="image/*"
-              onChange={upload}
-            />
-          </div>
-          <div>
-            <p>
-              <Icon path={mdiPhoneOutline} size={1} /> {userInfo.phoneNum}
-            </p>
-            <p>
-              <Icon path={mdiEmailOpenOutline} size={1} /> {userInfo.email}
-            </p>
-          </div>
-          <div className="education">
-            <h2>Education</h2>
+              <input
+                className="file-uploader"
+                type="file"
+                accept="image/*"
+                onChange={upload}
+              />
+            </div>
             <div>
-              <h3>{userInfo.titleOfStudy}</h3>
-              <h4>Tech University</h4>
-              <p>2024-09-18</p>
+              <p>
+                <Icon path={mdiPhoneOutline} size={1} /> {userInfo.phoneNum}
+              </p>
+              <p>
+                <Icon path={mdiEmailOpenOutline} size={1} /> {userInfo.email}
+              </p>
+            </div>
+            <div className="education">
+              <h2>
+                <span>Education</span>
+              </h2>
+              <div>
+                <h3>{userInfo.titleOfStudy}</h3>
+                <h4>Tech University</h4>
+                <p>{userInfo.dateOfStudy}</p>
+              </div>
             </div>
           </div>
         </div>
