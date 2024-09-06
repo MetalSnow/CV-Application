@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 :root {
   --cv-bg-color: #e7e5e4;
 }
 
 #root {
+  font-family: 'Nunito', sans-serif;
   width: 100%;
-  height: 100vh;
+
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -13,6 +16,7 @@
 }
 
 .home-container {
+  margin-top: 30px;
   opacity: 1;
   transition: opacity 0.4s ease-in, display 0.4s allow-discrete;
   border: 2px solid wheat;
@@ -39,7 +43,21 @@
     gap: 15px;
     width: 100%;
 
+    & .educationFieldSet {
+      & div {
+        width: 80%;
+      }
+    }
+
+    .practicalFieldSet {
+      & div {
+        width: 80%;
+      }
+    }
+
     & fieldset {
+      max-width: 830px;
+      position: relative;
       display: flex;
       flex-wrap: wrap;
       padding: 25px;
@@ -53,9 +71,23 @@
         padding: 0 5px;
       }
 
+      & .addBtn {
+        font-size: bold;
+        position: absolute;
+        right: 2%;
+        display: flex;
+        background-color: #d6d6d6;
+        justify-content: center;
+        font-size: 1.4rem;
+        border-radius: 50%;
+        padding: 1px 15px;
+        top: 0;
+        width: 15px;
+      }
+
       & > div {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
       }
 
@@ -99,17 +131,24 @@
   flex-direction: column;
   height: 100%;
 
-  & header {
+  & section {
     display: flex;
+    height: 1200px;
+  }
+
+  & aside {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    height: 80px;
-    padding: 0 40px;
+    height: 1200px;
     background: #132929;
     color: white;
-    box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
+    border-right: 1px solid #f55454;
+    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.3);
 
     & h1 {
+      padding: 10px 30px;
       font-size: 25px;
       display: flex;
       align-items: center;
@@ -122,13 +161,25 @@
 
     & .edit-btns {
       display: flex;
+      flex-direction: column;
       gap: 20px;
+      width: 100%;
 
       & button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
         background-color: bisque;
-        width: 135px;
+        width: 100%;
         border: none;
-        padding: 5px 10px;
+        border-radius: 0;
+        padding: 10px 0px;
+        box-shadow: 1px 0px 6px 0px rgba(0, 0, 0, 0.3);
+
+        &:hover {
+          background-color: #ffce93;
+        }
       }
     }
   }
@@ -139,10 +190,8 @@
     display: flex;
     flex-direction: column;
 
-    & h2,
-    p {
+    & h2 {
       display: flex;
-      align-items: center;
       gap: 5px;
     }
 
@@ -150,22 +199,24 @@
       position: relative;
       margin: 50px auto;
       width: 80%;
-      height: 1000px;
+      height: 1200px;
 
       border: 2px solid black;
       box-shadow: 1px 1px 4px 1px rgba(0, 0, 0, 0.3);
 
       & .cv-header {
         background-color: var(--cv-bg-color);
-        height: 190px;
-        position: relative;
+        height: 210px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        padding-left: 220px;
 
         & h1 {
-          position: absolute;
-          margin: 0;
-          bottom: 0;
+          width: 500px;
+          text-align: center;
           letter-spacing: 2px;
-          right: 35%;
+          margin: 0;
           font-size: 3.4rem;
         }
       }
@@ -188,6 +239,14 @@
         }
 
         & .work-section {
+          display: flex;
+          flex-direction: column;
+          gap: 2rem;
+
+          & h2 {
+            margin-bottom: 0;
+          }
+
           & > div {
             margin-top: 20px;
             width: 85%;
@@ -236,7 +295,7 @@
         gap: 1.3rem;
         top: 11%;
         left: 6%;
-        height: 800px;
+        height: 900px;
         border: 2px solid black;
 
         & .profile-picture {
@@ -284,8 +343,20 @@
           }
         }
 
+        & div p {
+          display: flex;
+          gap: 10px;
+          margin-top: 20px;
+          padding-left: 10px;
+        }
+
         & .education {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+
           & h2 {
+            margin-bottom: 0;
             margin-left: 40px;
             width: 190px;
             background-color: var(--cv-bg-color);
@@ -303,6 +374,16 @@
           }
         }
       }
+    }
+  }
+
+  & footer {
+    display: flex;
+    justify-content: center;
+
+    a {
+      color: white;
+      text-decoration: underline;
     }
   }
 }
