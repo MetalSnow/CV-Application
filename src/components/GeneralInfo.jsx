@@ -33,6 +33,13 @@ export default function GeneralInfo({ handleChange }) {
           placeholder={'Enter Email Adress'}
           handleChange={handleChange}
         />
+        <Input
+          label={'Address:'}
+          id={'adress'}
+          type={'text'}
+          placeholder={'Enter Current Adress'}
+          handleChange={handleChange}
+        />
       </div>
       <label>
         Profile:

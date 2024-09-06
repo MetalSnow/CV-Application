@@ -16,12 +16,20 @@ function App() {
     setUserInfo({ ...userInfo, [key]: value });
   };
 
-  console.log(userInfo);
-
   const submitForm = () => {
-    setTimeout(() => setResumeVisibility(true), 400);
+    setTimeout(() => {
+      setResumeVisibility(true);
+      window.scrollTo(0, 0);
+    }, 400);
     setHomeVisibility(false);
+    console.log(document.querySelector('.resume'));
   };
+
+  const handleEdit = () => {
+    setTimeout(() => setResumeVisibility(false), 400);
+    setHomeVisibility(true);
+  };
+
   return (
     <>
       <Home
@@ -29,7 +37,11 @@ function App() {
         handleChange={handleChange}
         isVisible={isHomeVisible}
       />
-      <Resume userInfo={userInfo} isVisible={isResumeVisible} />
+      <Resume
+        userInfo={userInfo}
+        isVisible={isResumeVisible}
+        handleEdit={handleEdit}
+      />
     </>
   );
 }
